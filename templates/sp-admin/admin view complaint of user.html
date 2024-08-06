@@ -1,0 +1,57 @@
+
+{% extends 'sp-admin/adminindex.html' %}
+{% block body %}
+
+
+
+
+
+
+
+<form id="form1" name="form1" method="post" action="search_date_view_complaint#about">
+<table class="table">
+    <tr>
+
+
+             <h3 align="center"><p><u> Complaint </u></p></h3>
+        <br>
+        <br>
+        <br>
+
+        <th>From</th>
+        <th><input type="date" name="f" required></th>
+        <th>To</th>
+        <th><input type="date" name="t" required></th>
+        <th><input type="submit" name="submit" value="Search" class="btn-success"></th>
+    </tr>
+</table>
+    <table class="table table-bordered table-hover table-striped">
+        <tr>
+            <th>Date</th>
+
+            <th>Complaint</th>
+            <th>User</th>
+            <th></th>
+
+        </tr>
+        {% for i in d1 %}
+
+      <tr>
+
+        <td>&nbsp;{{ i.date}}</td>
+        <td>&nbsp;{{ i.complaint}}</td>
+        <td>&nbsp;{{ i.USER.first_name }}</td>
+                  <td height="39"  align="center"><label>
+                      <a href="send_reply/{{ i.id }}" class="btn btn-success">REPLY</a>
+                  </label></td>
+
+      </tr>
+
+
+                {% endfor %}
+
+
+    </table>
+    </form>
+
+{% endblock %}

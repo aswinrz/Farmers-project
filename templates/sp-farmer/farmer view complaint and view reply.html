@@ -1,0 +1,46 @@
+
+{% extends "sp-farmer/farmerindex.html" %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="search_date_complaint_reply#fam1">
+  <table class="table table-bordered table-hover">
+    <tr align="center">
+      <th align="center" colspan="4">Date
+        <label>
+        <input type="date" name="textfield" />
+        </label>
+        <label >
+        <input type="submit" name="Submit" value="Submit" class="btn-success" />
+      </label></th>
+    </tr>
+    <tr>
+      <th align="center" width="61">Username</th>
+      <th align="center" width="66">Complaind</th>
+      <th align="center" width="40">Date</th>
+      <th align="center" width="69">Reply</th>
+    </tr>
+
+      {% for i in d1 %}
+
+    <tr>
+         <td>{{ i.USER.first_name }} {{ i.USER.last_name }}</td>
+         <td>{{ i.complaint}}</td>
+         <td>{{ i.date}}</td>
+         <td><a href="farmer_reply/{{ i.id }}" class="btn btn-success">reply</a></td>
+    </tr>
+
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+
+{% endblock %}

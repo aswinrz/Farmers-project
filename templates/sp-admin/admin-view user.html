@@ -1,0 +1,59 @@
+
+{% extends 'sp-admin/adminindex.html' %}
+{% block body %}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+    <style>
+table, th, td {
+  border: 1px solid black;
+}
+table {
+  border-spacing: 30px;
+}
+
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+   <table style="width:100%"  class="table table-striped">
+
+    <tr>
+      <th width="37">Sl.No</th>
+      <th width="37">Name</th>
+      <th width="51">Address</th>
+      <th width="45">Gender</th>
+      <th width="38">Phone</th>
+      <th width="53">E-mail</th>
+
+         <h3 align="center"><p><u> User </u></p></h3>
+        <br>
+        <br>
+
+    </tr>
+
+
+         {% for i in d1 %}
+<tr>
+
+         <td>{{ forloop.counter }}</td>
+         <td>&nbsp;{{ i.first_name}}</td>
+         <td>{{ i.place}}<br>{{ i.pin }}</td>
+         <td>{{ i.gender}}</td>
+         <td>{{ i.phone_number}}</td>
+         <td>{{ i.e_mail}}</td>
+   </tr>
+        {% endfor %}
+
+
+  </table>
+</form>
+</body>
+</html>
+
+{% endblock %}

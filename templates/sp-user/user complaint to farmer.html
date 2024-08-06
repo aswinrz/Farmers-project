@@ -1,0 +1,50 @@
+{% extends 'sp-user/userindex.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/search_complaint_product">
+  <table class="table table-hover">
+    <tr align="center">
+
+            <h3 align="center"><p><u><b>  Complaint </b></u></p></h3>
+
+
+      <th colspan="4">
+        <label>
+        <input type="text" placeholder="Search Complaint Here " name="textfield"  />
+        <input type="submit" name="Submit"  value="SEARCH"  class="btn btn-success" />
+      </label></th>
+    </tr>
+    <tr>
+      <th align="center" width="52">Product Name </th>
+      <th align="center" width="62">Complaint</th>
+      <th align="center" width="29">Date</th>
+      <th align="center" width="132">Reply</th>
+    </tr>
+      {% for i in d1 %}
+    <tr>
+        <td>{{ i.PRODUCT.PRODUCT }}</td>
+        <td>{{ i.complaint }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.reply }}</td>
+
+
+    </tr>
+      {% endfor %}
+ <tr align="center">
+     <th align="center" colspan="4"><a href="/send_complaint#about1"><span style="color: black;">Add Complaint</span></a></th>
+
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+
+{% endblock %}

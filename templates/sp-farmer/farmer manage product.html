@@ -1,0 +1,98 @@
+
+{% extends "sp-farmer/farmerindex.html" %}
+{% block body%}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+
+
+    <style>
+    .card {
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.1);
+    }
+  </style>
+
+
+
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="search_product#fam1">
+{#  <table width="333" border="1">#}
+{#    <tr>#}
+{#      <td colspan="6">Product Name#}
+{#        <label>#}
+{#        <input type="text" name="textfield" />#}
+{#        <input type="submit" name="Submit" value="SEARCH" />#}
+{#      </label></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td align="center" width="52">Product Name </td>#}
+{#      <td align="center" width="37">Image</td>#}
+{#      <td align="center" width="65">Discription</td>#}
+{#      <td align="center" width="28">Rate</td>#}
+{#      <td align="center" width="36">Stock</td>#}
+{#      <td width="75">&nbsp;</td>#}
+{#    </tr>#}
+{##}
+{#        {% for i in val %}#}
+{#<tr>#}
+{#        <td>&nbsp;{{ i.PRODUCT }}</td>#}
+{#        <td><img src="{{ i.image.url }}" height="100" width="100"></td>#}
+{#        <td>&nbsp;{{ i.description }}</td>#}
+{#        <td>{{ i.rate }}</td>#}
+{#        <td>{{ i.quality }}</td>#}
+{#        <td align="center"><p><a href="farmer_edit_product/{{ i.id }}">EDIT</a></p>#}
+{#      <p><a href="delete_product/{{ i.id }}">DELETE</a></p></td>#}
+{#</td>#}
+{#         {% endfor %}#}
+{##}
+{##}
+{##}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td align="center" colspan="6"><a href="add_new_product">ADD NEW</a></td>#}
+{#    </tr>#}
+{#  </table>#}
+</form>
+</body>
+</html>
+
+
+    <h3 align="center"><p><u><b>Product</b> </u></p></h3>
+
+<div class="text-center">
+<br>
+<br>
+
+<a href="add_new_product">ADD NEW</a>
+<br>
+<br>
+
+</div>
+
+<div class="row">
+<div class="row">
+        {% for i in val %}
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <div class="card mb-6">
+        <img src="{{ i.image.url }}" alt="Card Image" width="354px" height="354px">
+        <div class="card-body">
+          <h5 class="card-title">{{ i.PRODUCT }}</h5>
+          <p class="card-text">Description:{{ i.description }}</p>
+          <p class="card-text">Stock: {{ i.quality }}</p>
+          <p class="card-text">Price: {{ i.rate }}</p>
+          <p class="card-text"><a href="farmer_edit_product/{{ i.id }}">EDIT</a></p>
+          <p class="card-text"><a href="delete_product/{{ i.id }}">DELETE</a></p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'sp-user/userindex.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/user_send_rating_feedback">
+  <table class="table table-hover">
+<tr>
+
+    <h3 align="center"><p><u><b>  Rating </b></u></p></h3>
+
+
+     <th width="" align="center">Product Name </th>
+      <td width=""><label>
+        <select name="select2" class="form-control">
+            {% for i in val1 %}
+            <option value="{{ i.id }}">{{ i.PRODUCT }}</option>
+            {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <th  align="center">Rating</th>
+      <td><label>
+        <select name="select" class="form-control" required>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+</label></td>
+    </tr>
+    <tr>
+      <th align="center">Feedback</th>
+      <td >
+        <input type="text" name="textfield2" required class="form-control" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><label>
+        <input type="submit" name="Submit2" value="Submit" class="btn btn-outline-success"/>
+      </label></td>
+
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

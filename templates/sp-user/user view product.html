@@ -1,0 +1,66 @@
+{% extends 'sp-user/userindex.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+
+     <style>
+    .card {
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.1);
+    }
+  </style>
+
+
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="search_user_view_product#about1">
+<div class="table-responsive">
+  <table class="table table-hover">
+    <tr align="center" >
+      <th>
+        <label>
+        <input type="text" name="textfield" placeholder="Search Product Here" class="form-control" />
+        </label>
+        <label>
+        <input type="submit" name="Submit" value="Submit" class="btn btn-success"/>
+      </label></th>
+    </tr>
+  </table>
+</div>
+    <h3 align="center"><p><u><b>  Product </b></u></p></h3>
+<br>
+<br>
+
+<div class="row">
+  <div class="row">
+    {% for i in d1 %}
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card mb-4">
+          <img src="{{ i.image.url }}" alt="Card Image" width="342px" height="342px">
+          <div class="card-body">
+            <h5 class="card-title">{{ i.PRODUCT }}</h5>
+            <p class="card-text">{{ i.description }}</p>
+            <p class="card-text">Stock: {{ i.quality }}</p>
+            <p class="card-text">Price: {{ i.rate }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+</form>
+
+</body>
+</html>
+
+{% endblock %}

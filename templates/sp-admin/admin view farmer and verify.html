@@ -1,0 +1,65 @@
+
+{% extends 'sp-admin/adminindex.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+    <style>
+table, th, td {
+  border: 1px solid black;
+}
+table {
+  border-spacing: 30px;
+}
+
+</style>
+
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table style="width:100%"  class="table table-striped">
+    <tr>
+      <th align="">Serial Number </th>
+      <th align="">Farmer Name</th>
+      <th align="">Address</th>
+      <th align="">Phone Number </th>
+      <th align="">E-mail</th>
+      <th align="">&nbsp;</th>
+        <h3 align="center"><p><u> Farmer </u></p></h3>
+        <br>
+        <br>
+        <br>
+
+    </tr>
+       {% for i in d1 %}
+    <tr>
+
+
+        <td>{{ forloop.counter}}</td>
+        <td>{{ i.first_name}}</td>
+        <td>{{ i.place}}<br>{{ i.pin }}</td>
+        <td>{{ i.phone_number}}</td>
+        <td>{{ i.e_mail}}</td>
+
+
+{% if i.LOGIN.type == 'farmer' %}
+          <th>
+              <p><a href="/rejectfarm/{{ i.LOGIN.id }}" class="btn btn-danger">REJECT</a></p></th>
+        {% else %}
+
+
+       <th>            <p><a href="/acceptfarm/{{ i.LOGIN.id }}" class="btn btn-success">ACCEPT</a></p><br><br>
+ </th>
+    {% endif %}
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+
+{% endblock %}
